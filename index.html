@@ -122,7 +122,27 @@
   }
   .navlinks a:hover { color: var(--accent-ink); }
 
+  .lang-switch {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--accent-ink);
+    background: var(--accent-soft);
+    border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line));
+    border-radius: 999px;
+    padding: 5px 14px;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+  }
+  .lang-switch:hover { background: color-mix(in srgb, var(--accent-soft) 70%, var(--accent) 30%); }
+
   .wrap { max-width: 760px; margin: 0 auto; padding-block: 4px 80px; }
+
+  /* RTL (Farsi) mode */
+  body.rtl { direction: rtl; }
+  body.rtl .tl-item { grid-template-columns: 1fr; gap: 4px; }
+  body.rtl .lede { padding-left: 0; padding-right: 18px; border-left: none; border-right: 3px solid var(--accent); }
+  body.rtl .skill-row { grid-template-columns: 1fr; gap: 6px; }
 
   /* Hero */
   .hero {
@@ -457,13 +477,14 @@
   <div class="topnav-inner">
     <a class="brand" href="#top">SM/</a>
     <div class="navlinks">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#writing">Writing</a>
-      <a href="#projects">Projects</a>
-      <a href="#publications">Publications</a>
-      <a href="#contact">Contact</a>
+      <a class="i18n" data-fa="درباره" href="#about">About</a>
+      <a class="i18n" data-fa="سوابق" href="#experience">Experience</a>
+      <a class="i18n" data-fa="نوشته‌ها" href="#writing">Writing</a>
+      <a class="i18n" data-fa="پروژه‌ها" href="#projects">Projects</a>
+      <a class="i18n" data-fa="انتشارات" href="#publications">Publications</a>
+      <a class="i18n" data-fa="تماس" href="#contact">Contact</a>
     </div>
+    <button id="langToggle" class="lang-switch" type="button">فارسی</button>
   </div>
 </nav>
 
@@ -472,55 +493,55 @@
   <div class="hero">
     <div class="monogram">SM</div>
     <div class="hero-text">
-      <h1>Sareh Mahdavifar</h1>
-      <p class="hero-role">AI Engineer — ML &amp; Deep Learning · NLP · LLMs · RAG · Python · SQL</p>
+      <h1 class="i18n" data-fa="ساره مهدوی‌فر">Sareh Mahdavifar</h1>
+      <p class="hero-role i18n" data-fa="مهندس هوش مصنوعی — یادگیری ماشین و یادگیری عمیق · پردازش زبان طبیعی · LLM · RAG · پایتون · SQL">AI Engineer — ML &amp; Deep Learning · NLP · LLMs · RAG · Python · SQL</p>
       <div class="hero-meta">
-        <span>BUSHEHR, IRAN</span>
-        <span>OPEN TO RELOCATION</span>
+        <span class="i18n" data-fa="بوشهر، ایران">BUSHEHR, IRAN</span>
+        <span class="i18n" data-fa="آماده جابه‌جایی">OPEN TO RELOCATION</span>
       </div>
     </div>
   </div>
 
   <section id="about">
-    <div class="section-head"><span class="section-num">01</span><h2>About</h2></div>
-    <p>AI Engineer with a Software Engineering MSc and a first-author paper in a Q1 journal on clinical NLP. Currently building LLM-based NL2SQL and BI systems at <strong>Rosha Imen</strong> (on <strong>Odoo</strong> and <strong>Django</strong>), after data analyst roles across retail and healthcare AI. Open to AI engineer, data scientist, and fully-funded PhD opportunities.</p>
+    <div class="section-head"><span class="section-num">01</span><h2 class="i18n" data-fa="درباره من">About</h2></div>
+    <p class="i18n-html" data-fa-html="مهندس هوش مصنوعی با کارشناسی ارشد مهندسی نرم‌افزار و یک مقاله به‌عنوان نویسنده اول در یک ژورنال Q1 در زمینه پردازش زبان طبیعی بالینی. هم‌اکنون در حال توسعه دستیار NL2SQL مبتنی بر LLM و سامانه‌های هوش تجاری در &lt;strong&gt;روشا ایمن&lt;/strong&gt; (بر پایه &lt;strong&gt;اودو&lt;/strong&gt; و &lt;strong&gt;جنگو&lt;/strong&gt;) هستم، پس از تجربه در نقش تحلیل‌گر داده در حوزه خرده‌فروشی و هوش مصنوعی سلامت. آماده همکاری در نقش‌های مهندس هوش مصنوعی، دانشمند داده، و فرصت‌های دکتری تمام‌بورس.">AI Engineer with a Software Engineering MSc and a first-author paper in a Q1 journal on clinical NLP. Currently building LLM-based NL2SQL and BI systems at <strong>Rosha Imen</strong> (on <strong>Odoo</strong> and <strong>Django</strong>), after data analyst roles across retail and healthcare AI. Open to AI engineer, data scientist, and fully-funded PhD opportunities.</p>
   </section>
 
   <hr class="rule">
 
   <section id="experience">
-    <div class="section-head"><span class="section-num">02</span><h2>Experience</h2></div>
+    <div class="section-head"><span class="section-num">02</span><h2 class="i18n" data-fa="سوابق کاری">Experience</h2></div>
     <div class="timeline">
       <div class="tl-item">
-        <div class="tl-when"><span class="current">Jun 2026 — Present</span></div>
+        <div class="tl-when"><span class="current i18n" data-fa="ژوئن 2026 — تاکنون">Jun 2026 — Present</span></div>
         <div class="tl-body">
-          <h3>Artificial Intelligence Engineer</h3>
-          <p class="org">Rosha Imen · Full-time · On-site</p>
-          <p>Building a Farsi-language LLM assistant that answers natural-language questions over a large economic data warehouse via NL2SQL (Qwen-based). Contributing to the team's HSE module built on the Odoo framework, and its new BI layer for managers.</p>
+          <h3 class="i18n" data-fa="مهندس هوش مصنوعی">Artificial Intelligence Engineer</h3>
+          <p class="org i18n" data-fa="روشا ایمن · تمام‌وقت · حضوری">Rosha Imen · Full-time · On-site</p>
+          <p class="i18n" data-fa="توسعه یک دستیار زبانی فارسی مبتنی بر LLM که با استفاده از NL2SQL (بر پایه مدل Qwen) به پرسش‌های زبان طبیعی روی یک انبار داده اقتصادی بزرگ پاسخ می‌دهد. همکاری در ماژول HSE تیم که بر پایه فریم‌ورک اودو ساخته شده، و لایه هوش تجاری جدید آن برای مدیران.">Building a Farsi-language LLM assistant that answers natural-language questions over a large economic data warehouse via NL2SQL (Qwen-based). Contributing to the team's HSE module built on the Odoo framework, and its new BI layer for managers.</p>
         </div>
       </div>
       <div class="tl-item">
-        <div class="tl-when">Nov 2025 — May 2026</div>
+        <div class="tl-when i18n" data-fa="نوامبر 2025 — مه 2026">Nov 2025 — May 2026</div>
         <div class="tl-body">
-          <h3>Data Analyst</h3>
-          <p class="org">Quera · Internship · Tehran, Remote</p>
-          <p>200+ hours of applied data work: EDA, ETL pipeline design, classification/regression models tuned with GridSearchCV and cross-validation, interactive Power BI dashboards, and A/B testing. Scraped and processed 10,000+ records with Selenium and BeautifulSoup.</p>
+          <h3 class="i18n" data-fa="تحلیل‌گر داده">Data Analyst</h3>
+          <p class="org i18n" data-fa="کوئرا · کارآموزی · تهران، دورکاری">Quera · Internship · Tehran, Remote</p>
+          <p class="i18n" data-fa="بیش از 200 ساعت کار عملی داده: تحلیل اکتشافی داده، طراحی خط لوله ETL، مدل‌های دسته‌بندی و رگرسیون تنظیم‌شده با GridSearchCV و اعتبارسنجی متقاطع، داشبوردهای تعاملی Power BI، و آزمون A/B. جمع‌آوری و پردازش بیش از 10,000 رکورد با Selenium و BeautifulSoup.">200+ hours of applied data work: EDA, ETL pipeline design, classification/regression models tuned with GridSearchCV and cross-validation, interactive Power BI dashboards, and A/B testing. Scraped and processed 10,000+ records with Selenium and BeautifulSoup.</p>
         </div>
       </div>
       <div class="tl-item">
-        <div class="tl-when">Jul — Dec 2025</div>
+        <div class="tl-when i18n" data-fa="ژوئیه — دسامبر 2025">Jul — Dec 2025</div>
         <div class="tl-body">
-          <h3>Data Analyst</h3>
-          <p class="org">Megentix AI · Toronto, ON (Remote)</p>
-          <p>Built ETL pipelines and preprocessed data for an AI-powered healthcare platform.</p>
+          <h3 class="i18n" data-fa="تحلیل‌گر داده">Data Analyst</h3>
+          <p class="org i18n" data-fa="مجنتیکس ای‌آی · تورنتو، کانادا (دورکاری)">Megentix AI · Toronto, ON (Remote)</p>
+          <p class="i18n" data-fa="ساخت خط لوله‌های ETL و پیش‌پردازش داده برای یک پلتفرم سلامت مبتنی بر هوش مصنوعی.">Built ETL pipelines and preprocessed data for an AI-powered healthcare platform.</p>
         </div>
       </div>
       <div class="tl-item">
-        <div class="tl-when">Jul 2022 — Apr 2023</div>
+        <div class="tl-when i18n" data-fa="ژوئیه 2022 — آوریل 2023">Jul 2022 — Apr 2023</div>
         <div class="tl-body">
-          <h3>Scrum Master</h3>
-          <p class="org">Dataak · Full-time · Tehran, Hybrid</p>
-          <p>Coordinated Agile workflows and sprint planning across cross-functional teams using JIRA.</p>
+          <h3 class="i18n" data-fa="اسکرام مستر">Scrum Master</h3>
+          <p class="org i18n" data-fa="داتاک · تمام‌وقت · تهران، ترکیبی">Dataak · Full-time · Tehran, Hybrid</p>
+          <p class="i18n" data-fa="هماهنگی گردش‌کار اجایل و برنامه‌ریزی اسپرینت میان تیم‌های میان‌بخشی با استفاده از JIRA.">Coordinated Agile workflows and sprint planning across cross-functional teams using JIRA.</p>
         </div>
       </div>
     </div>
@@ -529,93 +550,93 @@
   <hr class="rule">
 
   <section id="writing">
-    <div class="section-head"><span class="section-num">03</span><h2>Writing</h2></div>
-    <p class="section-note" style="max-width: 66ch; color: var(--muted); font-size: 0.92rem; margin-bottom: 22px;">Active on LinkedIn writing about applied AI engineering — evaluation, retrieval, and what actually breaks in production LLM systems.</p>
+    <div class="section-head"><span class="section-num">03</span><h2 class="i18n" data-fa="نوشته‌ها">Writing</h2></div>
+    <p class="section-note i18n" data-fa="فعال در لینکدین با نوشتن درباره مهندسی کاربردی هوش مصنوعی — ارزیابی، بازیابی اطلاعات، و آنچه واقعاً در سامانه‌های LLM در محیط عملیاتی دچار مشکل می‌شود." style="max-width: 66ch; color: var(--muted); font-size: 0.92rem; margin-bottom: 22px;">Active on LinkedIn writing about applied AI engineering — evaluation, retrieval, and what actually breaks in production LLM systems.</p>
     <div class="project-grid">
       <div class="project-card">
         <div class="p-top">
-          <h3>What if your AI evaluator is biased too?</h3>
-          <span class="p-meta">7 · 135 impr.</span>
+          <h3 class="i18n" data-fa="اگر ارزیاب هوش مصنوعی شما هم مغرضانه باشد چه؟">What if your AI evaluator is biased too?</h3>
+          <span class="p-meta i18n" data-fa="7 · 135 بازدید">7 · 135 impr.</span>
         </div>
-        <p>On LLM-as-a-Judge: position bias, verbosity bias, and why the evaluator needs its own evaluation pipeline — randomized order, explicit rubrics, human-validated test sets.</p>
+        <p class="i18n" data-fa="درباره LLM-as-a-Judge: سوگیری موقعیتی، سوگیری پرگویی، و اینکه چرا خود ارزیاب هم به خط لوله ارزیابی مستقل نیاز دارد — ترتیب تصادفی، معیارهای صریح، و مجموعه‌های تست تأییدشده توسط انسان.">On LLM-as-a-Judge: position bias, verbosity bias, and why the evaluator needs its own evaluation pipeline — randomized order, explicit rubrics, human-validated test sets.</p>
         <div class="tags"><span class="tag">LLM Evaluation</span><span class="tag">LLMOps</span></div>
       </div>
       <div class="project-card">
         <div class="p-top">
-          <h3>Bigger context window = better results? Think again.</h3>
-          <span class="p-meta">12 · 326 impr.</span>
+          <h3 class="i18n" data-fa="پنجره کانتکست بزرگ‌تر یعنی نتیجه بهتر؟ دوباره فکر کنید.">Bigger context window = better results? Think again.</h3>
+          <span class="p-meta i18n" data-fa="12 · 326 بازدید">12 · 326 impr.</span>
         </div>
-        <p>On "context rot" and why relevant retrieval, smart chunking, and structure beat raw context length — even as windows push past a million tokens.</p>
+        <p class="i18n" data-fa="درباره «فرسایش کانتکست» و اینکه چرا بازیابی مرتبط، تکه‌بندی هوشمند، و ساختار بر طول خام کانتکست برتری دارند — حتی وقتی پنجره‌ها از یک میلیون توکن هم عبور می‌کنند.">On "context rot" and why relevant retrieval, smart chunking, and structure beat raw context length — even as windows push past a million tokens.</p>
         <div class="tags"><span class="tag">RAG</span><span class="tag">Context Windows</span></div>
       </div>
       <div class="project-card">
         <div class="p-top">
-          <h3>AI Engineering is not ML Engineering</h3>
-          <span class="p-meta">14 · 267 impr.</span>
+          <h3 class="i18n" data-fa="مهندسی هوش مصنوعی، مهندسی یادگیری ماشین نیست">AI Engineering is not ML Engineering</h3>
+          <span class="p-meta i18n" data-fa="14 · 267 بازدید">14 · 267 impr.</span>
         </div>
-        <p>Prompt engineering vs. fine-tuning: when adapting a model beats building one, and how to choose based on data, latency, and cost constraints.</p>
+        <p class="i18n" data-fa="مهندسی پرامپت در برابر فاین‌تیون: چه زمانی تطبیق یک مدل بهتر از ساختن آن از ابتدا است، و چگونه بر اساس داده، تأخیر، و محدودیت هزینه تصمیم بگیریم.">Prompt engineering vs. fine-tuning: when adapting a model beats building one, and how to choose based on data, latency, and cost constraints.</p>
         <div class="tags"><span class="tag">Prompt Engineering</span><span class="tag">Fine-tuning</span></div>
       </div>
       <div class="project-card">
         <div class="p-top">
-          <h3>Harness Engineering — the layer no one talks about</h3>
-          <span class="p-meta">13 · 226 impr.</span>
+          <h3 class="i18n" data-fa="مهندسی هارنس — لایه‌ای که کسی درباره‌اش حرف نمی‌زند">Harness Engineering — the layer no one talks about</h3>
+          <span class="p-meta i18n" data-fa="13 · 226 بازدید">13 · 226 impr.</span>
         </div>
-        <p>Retries, fallbacks, memory management, and observability: the unglamorous system design that turns a notebook demo into a production AI product.</p>
+        <p class="i18n" data-fa="تلاش مجدد، مسیرهای جایگزین، مدیریت حافظه، و observability: طراحی سیستمی نه‌چندان جذاب که یک دموی نوت‌بوکی را به یک محصول هوش مصنوعی عملیاتی تبدیل می‌کند.">Retries, fallbacks, memory management, and observability: the unglamorous system design that turns a notebook demo into a production AI product.</p>
         <div class="tags"><span class="tag">System Design</span><span class="tag">Production AI</span></div>
       </div>
     </div>
-    <p style="margin-top: 4px;"><a href="https://www.linkedin.com/in/sare-mahdavifar/recent-activity/all/" target="_blank" rel="noopener">See all posts on LinkedIn ↗</a></p>
+    <p style="margin-top: 4px;"><a class="i18n" data-fa="مشاهده همه نوشته‌ها در لینکدین ↗" href="https://www.linkedin.com/in/sare-mahdavifar/recent-activity/all/" target="_blank" rel="noopener">See all posts on LinkedIn ↗</a></p>
   </section>
 
   <hr class="rule">
 
   <section id="projects">
-    <div class="section-head"><span class="section-num">04</span><h2>Projects</h2></div>
+    <div class="section-head"><span class="section-num">04</span><h2 class="i18n" data-fa="پروژه‌ها">Projects</h2></div>
 
     <div class="project-grid">
       <div class="project-card">
         <div class="p-top">
-          <h3>Superstore Sales &amp; Inventory Analytics</h3>
-          <a class="p-link" href="https://github.com/SareMahdavifar/Superstore_sales_analytics" target="_blank" rel="noopener">github ↗</a>
+          <h3 class="i18n" data-fa="تحلیل فروش و موجودی سوپراستور">Superstore Sales &amp; Inventory Analytics</h3>
+          <a class="p-link i18n" data-fa="گیت‌هاب ↗" href="https://github.com/SareMahdavifar/Superstore_sales_analytics" target="_blank" rel="noopener">github ↗</a>
         </div>
-        <p>End-to-end retail pipeline: rebuilt 50,000+ transactions into a star schema, validated business assumptions with non-parametric hypothesis tests, then compared four regression models before shipping a Power BI dashboard on regional profitability.</p>
+        <p class="i18n" data-fa="خط لوله کامل خرده‌فروشی: بازسازی بیش از 50,000 تراکنش در قالب یک اسکیمای ستاره‌ای، اعتبارسنجی فرضیات کسب‌وکار با آزمون‌های ناپارامتری، و سپس مقایسه چهار مدل رگرسیون پیش از ارائه یک داشبورد Power BI درباره سودآوری منطقه‌ای.">End-to-end retail pipeline: rebuilt 50,000+ transactions into a star schema, validated business assumptions with non-parametric hypothesis tests, then compared four regression models before shipping a Power BI dashboard on regional profitability.</p>
         <div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">XGBoost</span><span class="tag">Power BI</span></div>
       </div>
 
       <div class="project-card">
         <div class="p-top">
-          <h3>Basketball Reference Analytics</h3>
-          <a class="p-link" href="https://github.com/SareMahdavifar/Basketball-Reference-Analytics" target="_blank" rel="noopener">github ↗</a>
+          <h3 class="i18n" data-fa="تحلیل داده‌های مرجع بسکتبال">Basketball Reference Analytics</h3>
+          <a class="p-link i18n" data-fa="گیت‌هاب ↗" href="https://github.com/SareMahdavifar/Basketball-Reference-Analytics" target="_blank" rel="noopener">github ↗</a>
         </div>
-        <p>Scraped six seasons of NBA player statistics, normalized them into a relational MySQL schema via SQLAlchemy, and ran hypothesis tests asking what actually separates MVP-calibre players from the rest — finding that physical attributes barely differ; accumulated experience is what separates them.</p>
+        <p class="i18n" data-fa="جمع‌آوری آمار بازیکنان NBA در شش فصل، نرمال‌سازی آن‌ها در یک اسکیمای رابطه‌ای MySQL با SQLAlchemy، و اجرای آزمون‌های فرضیه برای یافتن آنچه واقعاً بازیکنان سطح MVP را از بقیه متمایز می‌کند — با این یافته که ویژگی‌های فیزیکی تفاوت چندانی ندارند؛ آنچه متمایزشان می‌کند تجربه انباشته‌شده است.">Scraped six seasons of NBA player statistics, normalized them into a relational MySQL schema via SQLAlchemy, and ran hypothesis tests asking what actually separates MVP-calibre players from the rest — finding that physical attributes barely differ; accumulated experience is what separates them.</p>
         <div class="tags"><span class="tag">Selenium</span><span class="tag">MySQL</span><span class="tag">SciPy</span><span class="tag">Plotly</span></div>
       </div>
 
       <div class="project-card">
         <div class="p-top">
-          <h3>Marketing A/B Testing &amp; Conversion Analysis</h3>
-          <a class="p-link" href="https://github.com/SareMahdavifar/marketing-ab-testing-conversion-analysis" target="_blank" rel="noopener">github ↗</a>
+          <h3 class="i18n" data-fa="آزمون A/B بازاریابی و تحلیل نرخ تبدیل">Marketing A/B Testing &amp; Conversion Analysis</h3>
+          <a class="p-link i18n" data-fa="گیت‌هاب ↗" href="https://github.com/SareMahdavifar/marketing-ab-testing-conversion-analysis" target="_blank" rel="noopener">github ↗</a>
         </div>
-        <p>Evaluated a 588,101-user ad campaign against a PSA control group — did the ad work, does timing matter, and does exposure volume actually cause conversion, or just correlate with it?</p>
+        <p class="i18n" data-fa="ارزیابی یک کمپین تبلیغاتی با 588,101 کاربر در برابر یک گروه کنترل PSA — آیا تبلیغ اثر داشت، آیا زمان‌بندی اهمیت دارد، و آیا حجم نمایش واقعاً باعث تبدیل می‌شود یا فقط با آن هم‌بسته است؟">Evaluated a 588,101-user ad campaign against a PSA control group — did the ad work, does timing matter, and does exposure volume actually cause conversion, or just correlate with it?</p>
         <div class="tags"><span class="tag">pandas</span><span class="tag">statsmodels</span><span class="tag">Plotly</span></div>
       </div>
 
       <div class="project-card">
         <div class="p-top">
-          <h3>Social Anxiety Statistical Analysis</h3>
-          <a class="p-link" href="https://github.com/SareMahdavifar/Social-Anxiety-Statistical-Analysis" target="_blank" rel="noopener">github ↗</a>
+          <h3 class="i18n" data-fa="تحلیل آماری اضطراب اجتماعی">Social Anxiety Statistical Analysis</h3>
+          <a class="p-link i18n" data-fa="گیت‌هاب ↗" href="https://github.com/SareMahdavifar/Social-Anxiety-Statistical-Analysis" target="_blank" rel="noopener">github ↗</a>
         </div>
-        <p>Ran 12+ hypothesis tests across 20+ demographic, lifestyle, and physiological variables from 2,030 subjects to isolate what actually predicts social anxiety — stress level and family history stood out as the strongest signals.</p>
+        <p class="i18n" data-fa="اجرای بیش از 12 آزمون فرضیه روی بیش از 20 متغیر جمعیت‌شناختی، سبک زندگی، و فیزیولوژیک از 2,030 شرکت‌کننده برای یافتن آنچه واقعاً اضطراب اجتماعی را پیش‌بینی می‌کند — سطح استرس و سابقه خانوادگی قوی‌ترین سیگنال‌ها بودند.">Ran 12+ hypothesis tests across 20+ demographic, lifestyle, and physiological variables from 2,030 subjects to isolate what actually predicts social anxiety — stress level and family history stood out as the strongest signals.</p>
         <div class="tags"><span class="tag">pandas</span><span class="tag">SciPy</span><span class="tag">seaborn</span></div>
       </div>
 
       <div class="project-card">
         <div class="p-top">
-          <h3>Clinical Report Severity Classification</h3>
-          <a class="p-link" href="https://www.sciencedirect.com/science/article/pii/S0020653924001680" target="_blank" rel="noopener">paper ↗</a>
+          <h3 class="i18n" data-fa="دسته‌بندی شدت گزارش‌های بالینی">Clinical Report Severity Classification</h3>
+          <a class="p-link i18n" data-fa="مقاله ↗" href="https://www.sciencedirect.com/science/article/pii/S0020653924001680" target="_blank" rel="noopener">paper ↗</a>
         </div>
-        <p>Annotated 1,000+ dental cone-beam CT reports and trained NLP and deep-learning models to classify oral lesion severity — the basis of my Q1 journal publication.</p>
+        <p class="i18n" data-fa="برچسب‌گذاری بیش از 1,000 گزارش سی‌تی‌اسکن کون-بیم دندانی و آموزش مدل‌های پردازش زبان طبیعی و یادگیری عمیق برای دسته‌بندی شدت ضایعات دهانی — مبنای مقاله ژورنال Q1 من.">Annotated 1,000+ dental cone-beam CT reports and trained NLP and deep-learning models to classify oral lesion severity — the basis of my Q1 journal publication.</p>
         <div class="tags"><span class="tag">NLTK</span><span class="tag">Deep Learning</span><span class="tag">Clinical NLP</span></div>
       </div>
     </div>
@@ -624,16 +645,16 @@
   <hr class="rule">
 
   <section id="publications">
-    <div class="section-head"><span class="section-num">05</span><h2>Publications</h2></div>
+    <div class="section-head"><span class="section-num">05</span><h2 class="i18n" data-fa="انتشارات">Publications</h2></div>
 
     <div class="pub">
-      <span class="pub-kind">Journal · Q1</span>
+      <span class="pub-kind i18n" data-fa="مجله · Q1">Journal · Q1</span>
       <h3>Estimating the Severity of Oral Lesions via Analysis of Cone-Beam Computed Tomography Reports: A Proposed Deep Learning Model</h3>
       <p class="venue">Mahdavifar, S., Fakhrahmad, S. M., &amp; Ansarifard, E. (2024) · International Dental Journal</p>
-      <p><a href="https://www.sciencedirect.com/science/article/pii/S0020653924001680" target="_blank" rel="noopener">Read on ScienceDirect ↗</a></p>
+      <p><a class="i18n" data-fa="مطالعه در ساینس‌دایرکت ↗" href="https://www.sciencedirect.com/science/article/pii/S0020653924001680" target="_blank" rel="noopener">Read on ScienceDirect ↗</a></p>
     </div>
     <div class="pub">
-      <span class="pub-kind">Conference</span>
+      <span class="pub-kind i18n" data-fa="کنفرانس">Conference</span>
       <h3>Sentiment Analysis in Clinical Reports</h3>
       <p class="venue">Mahdavifar, S., &amp; Fakhrahmad, M. (2021) · 7th Intl. Conference on Knowledge and Technology of Mechanical, Electrical Engineering and Computer of Iran</p>
     </div>
@@ -642,51 +663,91 @@
   <hr class="rule">
 
   <section id="education">
-    <div class="section-head"><span class="section-num">06</span><h2>Education</h2></div>
+    <div class="section-head"><span class="section-num">06</span><h2 class="i18n" data-fa="تحصیلات">Education</h2></div>
     <div class="edu-item">
-      <h3>MSc, Software Engineering</h3>
-      <p class="org">Shiraz University · 2018–2021</p>
-      <p>Thesis: "Sentiment Analysis in Clinical Reports" (NLP + deep learning for healthcare text). Supervisor: Dr. Seyed Mostafa Fakhrahmad</p>
+      <h3 class="i18n" data-fa="کارشناسی ارشد، مهندسی نرم‌افزار">MSc, Software Engineering</h3>
+      <p class="org i18n" data-fa="دانشگاه شیراز · 2018–2021">Shiraz University · 2018–2021</p>
+      <p class="i18n" data-fa="پایان‌نامه: «تحلیل احساسات در گزارش‌های بالینی» (پردازش زبان طبیعی و یادگیری عمیق برای متون سلامت). استاد راهنما: دکتر سید مصطفی فخراحمد">Thesis: "Sentiment Analysis in Clinical Reports" (NLP + deep learning for healthcare text). Supervisor: Dr. Seyed Mostafa Fakhrahmad</p>
     </div>
     <div class="edu-item">
-      <h3>BSc, Computer/Software Engineering</h3>
-      <p class="org">Persian Gulf University · 2012–2016</p>
+      <h3 class="i18n" data-fa="کارشناسی، مهندسی کامپیوتر/نرم‌افزار">BSc, Computer/Software Engineering</h3>
+      <p class="org i18n" data-fa="دانشگاه خلیج فارس · 2012–2016">Persian Gulf University · 2012–2016</p>
     </div>
   </section>
 
   <hr class="rule">
 
   <section id="skills">
-    <div class="section-head"><span class="section-num">07</span><h2>Skills</h2></div>
+    <div class="section-head"><span class="section-num">07</span><h2 class="i18n" data-fa="مهارت‌ها">Skills</h2></div>
     <div class="skill-groups">
-      <div class="skill-row"><span class="cat">Programming</span><div class="chips"><span class="chip">Python</span><span class="chip">SQL</span></div></div>
-      <div class="skill-row"><span class="cat">ML</span><div class="chips"><span class="chip">scikit-learn</span><span class="chip">XGBoost</span><span class="chip">LightGBM</span><span class="chip">Keras</span><span class="chip">GridSearchCV</span><span class="chip">Feature Engineering</span></div></div>
-      <div class="skill-row"><span class="cat">NLP</span><div class="chips"><span class="chip">NLTK</span><span class="chip">Text Classification</span><span class="chip">Sentiment / Severity Analysis</span></div></div>
-      <div class="skill-row"><span class="cat">Data</span><div class="chips"><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">EDA</span><span class="chip">A/B Testing</span><span class="chip">Hypothesis Testing</span></div></div>
-      <div class="skill-row"><span class="cat">BI &amp; Viz</span><div class="chips"><span class="chip">Power BI</span><span class="chip">Matplotlib</span><span class="chip">Seaborn</span><span class="chip">Plotly</span><span class="chip">Metabase</span></div></div>
-      <div class="skill-row"><span class="cat">Engineering</span><div class="chips"><span class="chip">ETL</span><span class="chip">Selenium</span><span class="chip">BeautifulSoup</span><span class="chip">SQLAlchemy</span></div></div>
-      <div class="skill-row"><span class="cat">Frameworks</span><div class="chips"><span class="chip">Odoo</span><span class="chip">Django</span><span class="chip">Django REST Framework</span></div></div>
-      <div class="skill-row"><span class="cat">Tools</span><div class="chips"><span class="chip">Git</span><span class="chip">VS Code</span><span class="chip">JIRA</span><span class="chip">Agile / Scrum</span></div></div>
-      <div class="skill-row"><span class="cat">Spoken</span><div class="chips"><span class="chip">Farsi — Native</span><span class="chip">English — Professional</span><span class="chip">Turkish — Elementary</span></div></div>
+      <div class="skill-row"><span class="cat i18n" data-fa="برنامه‌نویسی">Programming</span><div class="chips"><span class="chip">Python</span><span class="chip">SQL</span></div></div>
+      <div class="skill-row"><span class="cat i18n" data-fa="یادگیری ماشین">ML</span><div class="chips"><span class="chip">scikit-learn</span><span class="chip">XGBoost</span><span class="chip">LightGBM</span><span class="chip">Keras</span><span class="chip">GridSearchCV</span><span class="chip">Feature Engineering</span></div></div>
+      <div class="skill-row"><span class="cat i18n" data-fa="پردازش زبان طبیعی">NLP</span><div class="chips"><span class="chip">NLTK</span><span class="chip">Text Classification</span><span class="chip">Sentiment / Severity Analysis</span></div></div>
+      <div class="skill-row"><span class="cat i18n" data-fa="داده">Data</span><div class="chips"><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">EDA</span><span class="chip">A/B Testing</span><span class="chip">Hypothesis Testing</span></div></div>
+      <div class="skill-row"><span class="cat i18n" data-fa="هوش تجاری و بصری‌سازی">BI &amp; Viz</span><div class="chips"><span class="chip">Power BI</span><span class="chip">Matplotlib</span><span class="chip">Seaborn</span><span class="chip">Plotly</span><span class="chip">Metabase</span></div></div>
+      <div class="skill-row"><span class="cat i18n" data-fa="مهندسی">Engineering</span><div class="chips"><span class="chip">ETL</span><span class="chip">Selenium</span><span class="chip">BeautifulSoup</span><span class="chip">SQLAlchemy</span></div></div>
+      <div class="skill-row"><span class="cat i18n" data-fa="فریم‌ورک‌ها">Frameworks</span><div class="chips"><span class="chip">Odoo</span><span class="chip">Django</span><span class="chip">Django REST Framework</span></div></div>
+      <div class="skill-row"><span class="cat i18n" data-fa="ابزارها">Tools</span><div class="chips"><span class="chip">Git</span><span class="chip">VS Code</span><span class="chip">JIRA</span><span class="chip">Agile / Scrum</span></div></div>
+      <div class="skill-row"><span class="cat i18n" data-fa="زبان‌ها">Spoken</span><div class="chips"><span class="chip i18n" data-fa="فارسی — زبان مادری">Farsi — Native</span><span class="chip i18n" data-fa="انگلیسی — حرفه‌ای">English — Professional</span><span class="chip i18n" data-fa="ترکی — مبتدی">Turkish — Elementary</span></div></div>
     </div>
 
     <div class="callout">
-      <span class="tag-label">Certification</span>
-      <p style="max-width: none;">Task-Oriented Bootcamp in Data Analysis — Quera</p>
+      <span class="tag-label i18n" data-fa="گواهی‌نامه">Certification</span>
+      <p class="i18n" data-fa="بوت‌کمپ وظیفه‌محور تحلیل داده — کوئرا" style="max-width: none;">Task-Oriented Bootcamp in Data Analysis — Quera</p>
     </div>
   </section>
 
   <footer id="contact">
     <div class="footer-links">
       <a href="mailto:s.mahdavifar2001@gmail.com">s.mahdavifar2001@gmail.com</a>
-      <a href="https://github.com/SareMahdavifar" target="_blank" rel="noopener">GitHub ↗</a>
-      <a href="https://www.linkedin.com/in/sare-mahdavifar" target="_blank" rel="noopener">LinkedIn ↗</a>
-      <a href="https://scholar.google.com/citations?user=C-Eu2pkAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar ↗</a>
+      <a class="i18n" data-fa="گیت‌هاب ↗" href="https://github.com/SareMahdavifar" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="i18n" data-fa="لینکدین ↗" href="https://www.linkedin.com/in/sare-mahdavifar" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="i18n" data-fa="گوگل اسکالر ↗" href="https://scholar.google.com/citations?user=C-Eu2pkAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar ↗</a>
     </div>
-    <p class="footer-note">Ready to collaborate and relocate anywhere that offers the expertise and growth to build a brighter future — open to AI/ML roles and fully-funded PhD positions worldwide.</p>
+    <p class="footer-note i18n" data-fa="آماده همکاری و جابه‌جایی به هر جایی هستم که تخصص و رشد لازم برای ساختن آینده‌ای روشن‌تر را فراهم کند — پذیرای نقش‌های هوش مصنوعی/یادگیری ماشین و فرصت‌های دکتری تمام‌بورس در سراسر جهان.">Ready to collaborate and relocate anywhere that offers the expertise and growth to build a brighter future — open to AI/ML roles and fully-funded PhD positions worldwide.</p>
   </footer>
 
 </div>
+
+<script>
+(function () {
+  var toggleBtn = document.getElementById('langToggle');
+  var currentLang = 'en';
+
+  function captureOriginals() {
+    document.querySelectorAll('.i18n').forEach(function (el) {
+      if (el.dataset.en === undefined) el.dataset.en = el.textContent;
+    });
+    document.querySelectorAll('.i18n-html').forEach(function (el) {
+      if (el.dataset.enHtml === undefined) el.dataset.enHtml = el.innerHTML;
+    });
+  }
+
+  function applyLang(lang) {
+    document.documentElement.lang = lang === 'fa' ? 'fa' : 'en';
+    document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
+    document.body.classList.toggle('rtl', lang === 'fa');
+
+    document.querySelectorAll('.i18n').forEach(function (el) {
+      el.textContent = lang === 'fa' ? el.dataset.fa : el.dataset.en;
+    });
+    document.querySelectorAll('.i18n-html').forEach(function (el) {
+      el.innerHTML = lang === 'fa' ? el.dataset.faHtml : el.dataset.enHtml;
+    });
+
+    if (toggleBtn) toggleBtn.textContent = lang === 'fa' ? 'انگلیسی' : 'فارسی';
+    currentLang = lang;
+  }
+
+  captureOriginals();
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', function () {
+      applyLang(currentLang === 'fa' ? 'en' : 'fa');
+    });
+  }
+})();
+</script>
 
 </body>
 </html>
