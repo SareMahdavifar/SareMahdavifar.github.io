@@ -166,12 +166,15 @@
     box-shadow: var(--shadow);
   }
   .avatar-photo {
-    width: 96px; height: 96px;
+    width: 300px; height: 300px;
     border-radius: 50%;
     object-fit: cover;
     flex-shrink: 0;
     box-shadow: var(--shadow);
-    border: 3px solid var(--surface);
+    border: 4px solid var(--surface);
+  }
+  @media (max-width: 620px) {
+    .avatar-photo { width: 180px; height: 180px; }
   }
   .hero-text h1 {
     font-family: var(--serif);
@@ -492,7 +495,7 @@
       <a class="i18n" data-fa="انتشارات" href="#publications">Publications</a>
       <a class="i18n" data-fa="تماس" href="#contact">Contact</a>
     </div>
-    <button id="langToggle" class="lang-switch" type="button">فارسی</button>
+    <button id="langToggle" class="lang-switch" type="button">Farsi</button>
   </div>
 </nav>
 
@@ -743,7 +746,7 @@
       el.innerHTML = lang === 'fa' ? el.dataset.faHtml : el.dataset.enHtml;
     });
 
-    if (toggleBtn) toggleBtn.textContent = lang === 'fa' ? 'انگلیسی' : 'فارسی';
+    if (toggleBtn) toggleBtn.textContent = lang === 'fa' ? 'English' : 'Farsi';
     currentLang = lang;
   }
 
