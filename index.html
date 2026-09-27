@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sareh Mahdavifar — AI Engineer</title>
+</head>
+<body>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+  :root {
+    --bg: #F5F6F8;
+    --surface: #FFFFFF;
+    --surface-2: #EAEDF2;
+    --ink: #101826;
+    --ink-soft: #3D4759;
+    --muted: #626E82;
+    --accent: #1B3A6B;
+    --accent-ink: #0F2A50;
+    --accent-soft: #E3E9F3;
+    --warm: #9A7529;
+    --warm-soft: #F3EAD3;
+    --line: #DEE2E9;
+    --shadow: 0 1px 2px rgba(16,24,38,0.06), 0 10px 28px -16px rgba(16,24,38,0.20);
+    --serif: 'Segoe UI', 'Vazirmatn', Tahoma, Geneva, Verdana, sans-serif;
+    --sans: 'Segoe UI', 'Vazirmatn', Tahoma, Geneva, Verdana, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0B101B;
+      --surface: #121A29;
+      --surface-2: #182233;
+      --ink: #E7ECF4;
+      --ink-soft: #B4BFD1;
+      --muted: #8291A8;
+      --accent: #5C8FE0;
+      --accent-ink: #BFD5F7;
+      --accent-soft: #1B2C47;
+      --warm: #D9B665;
+      --warm-soft: #362A14;
+      --line: #22304A;
+      --shadow: 0 1px 2px rgba(0,0,0,0.35), 0 10px 28px -16px rgba(0,0,0,0.6);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0B101B;
+    --surface: #121A29;
+    --surface-2: #182233;
+    --ink: #E7ECF4;
+    --ink-soft: #B4BFD1;
+    --muted: #8291A8;
+    --accent: #5C8FE0;
+    --accent-ink: #BFD5F7;
+    --accent-soft: #1B2C47;
+    --warm: #D9B665;
+    --warm-soft: #362A14;
+    --line: #22304A;
+    --shadow: 0 1px 2px rgba(0,0,0,0.35), 0 10px 28px -16px rgba(0,0,0,0.6);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16.5px;
+    line-height: 1.65;
+    margin: 0;
+    padding: 0 20px;
+  }
+
+  a { color: var(--accent-ink); text-decoration-color: color-mix(in srgb, var(--accent-ink) 35%, transparent); text-underline-offset: 3px; }
+  a:hover { text-decoration-color: currentColor; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* Top nav */
+  .topnav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+    margin: 0 -20px;
+    padding: 0 20px;
+  }
+  .topnav-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 14px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .brand {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .navlinks {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .navlinks a {
+    font-family: var(--sans);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    text-decoration: none;
+  }
+  .navlinks a:hover { color: var(--accent-ink); }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding-block: 4px 80px; }
+
+  /* Hero */
+  .hero {
+    padding-block: 52px 36px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .monogram {
+    width: 82px; height: 82px;
+    border-radius: 14px;
+    background: var(--accent);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 1.9rem;
+    letter-spacing: 0.02em;
+    flex-shrink: 0;
+    box-shadow: var(--shadow);
+  }
+  .hero-text h1 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(1.9rem, 5vw, 2.5rem);
+    margin: 0 0 6px;
+    letter-spacing: -0.005em;
+    text-wrap: balance;
+  }
+  .hero-role {
+    font-size: 1.02rem;
+    color: var(--ink-soft);
+    margin: 0 0 10px;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+
+  .lede {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 1.18rem;
+    line-height: 1.6;
+    color: var(--ink);
+    margin: 0 0 40px;
+    padding-left: 18px;
+    border-left: 3px solid var(--accent);
+    max-width: 62ch;
+    text-wrap: balance;
+  }
+  .lede .hi { color: var(--accent-ink); background: var(--accent-soft); padding: 0.01em 0.32em; border-radius: 4px; font-weight: 700; }
+
+  /* Stat strip */
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 44px;
+  }
+  .stat {
+    background: var(--surface);
+    padding: 16px 14px;
+    text-align: center;
+  }
+  .stat .num {
+    display: block;
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--accent-ink);
+  }
+  .stat .lbl {
+    display: block;
+    font-size: 0.74rem;
+    color: var(--muted);
+    margin-top: 3px;
+    line-height: 1.3;
+  }
+  @media (max-width: 560px) {
+    .stat-strip { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  section { margin-bottom: 8px; scroll-margin-top: 70px; }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+  .section-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
+  h2 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin: 0;
+    color: var(--ink);
+  }
+  hr.rule { border: none; border-top: 1px solid var(--line); margin: 48px 0; }
+
+  p { margin: 0 0 16px; max-width: 66ch; color: var(--ink-soft); }
+  p:last-child { margin-bottom: 0; }
+  strong { color: var(--ink); font-weight: 600; }
+
+  /* Timeline */
+  .timeline { display: flex; flex-direction: column; }
+  .tl-item {
+    display: grid;
+    grid-template-columns: 128px 1fr;
+    gap: 18px;
+    padding-block: 18px;
+    border-bottom: 1px solid var(--line);
+  }
+  .tl-item:first-child { padding-top: 0; }
+  .tl-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .tl-when {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    padding-top: 3px;
+  }
+  .tl-when .current { color: var(--accent-ink); font-weight: 600; }
+  .tl-body h3 {
+    font-family: var(--sans);
+    font-size: 1.02rem;
+    font-weight: 700;
+    margin: 0 0 3px;
+    color: var(--ink);
+  }
+  .tl-body .org {
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .tl-body p { margin: 0; font-size: 0.95rem; }
+  @media (max-width: 560px) {
+    .tl-item { grid-template-columns: 1fr; gap: 4px; }
+  }
+
+  /* Project cards */
+  .project-grid { display: flex; flex-direction: column; gap: 16px; }
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 22px 24px;
+    box-shadow: var(--shadow);
+  }
+  .project-card .p-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  .project-card h3 {
+    font-family: var(--sans);
+    font-size: 1.08rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--ink);
+  }
+  .project-card .p-meta {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .project-card .p-link {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .project-card p { font-size: 0.95rem; margin-bottom: 12px; }
+  .p-stats {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+  .p-stat {
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    background: var(--accent-soft);
+    color: var(--accent-ink);
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+  .tags { display: flex; gap: 7px; flex-wrap: wrap; }
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    color: var(--muted);
+    background: var(--surface-2);
+    padding: 3px 9px;
+    border-radius: 6px;
+  }
+
+  .callout {
+    background: var(--warm-soft);
+    border: 1px solid color-mix(in srgb, var(--warm) 35%, var(--line));
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-top: 18px;
+  }
+  .callout p { color: var(--ink-soft); font-size: 0.93rem; margin: 0; }
+  .callout .tag-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--warm);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  /* Publications */
+  .pub {
+    padding-block: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .pub:last-child { border-bottom: none; }
+  .pub .pub-kind {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent-ink);
+    background: var(--accent-soft);
+    padding: 2px 8px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+  .pub h3 { font-family: var(--sans); font-size: 1rem; font-weight: 700; margin: 0 0 4px; color: var(--ink); }
+  .pub .venue { font-size: 0.88rem; color: var(--muted); margin: 0 0 6px; }
+  .pub p { font-size: 0.92rem; margin: 0; }
+
+  /* Two-column grid for edu/awards */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  @media (max-width: 620px) {
+    .two-col { grid-template-columns: 1fr; }
+  }
+  .edu-item { margin-bottom: 18px; }
+  .edu-item:last-child { margin-bottom: 0; }
+  .edu-item h3 { font-family: var(--sans); font-size: 0.98rem; font-weight: 700; margin: 0 0 2px; color: var(--ink); }
+  .edu-item .org { font-size: 0.87rem; color: var(--muted); margin: 0 0 4px; }
+  .edu-item p { font-size: 0.9rem; margin: 0; }
+  ul.awards { margin: 0; padding-left: 18px; }
+  ul.awards li { font-size: 0.9rem; color: var(--ink-soft); margin-bottom: 8px; }
+  ul.awards li:last-child { margin-bottom: 0; }
+
+  /* Skills */
+  .skill-groups { display: flex; flex-direction: column; gap: 14px; }
+  .skill-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 14px;
+    align-items: baseline;
+  }
+  .skill-row .cat {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .skill-row .chips { display: flex; flex-wrap: wrap; gap: 7px; }
+  .chip {
+    font-size: 0.85rem;
+    background: var(--surface-2);
+    color: var(--ink-soft);
+    padding: 4px 11px;
+    border-radius: 999px;
+  }
+  @media (max-width: 560px) {
+    .skill-row { grid-template-columns: 1fr; gap: 6px; }
+  }
+
+  /* Languages */
+  .lang-row { display: flex; gap: 28px; flex-wrap: wrap; }
+  .lang-item { }
+  .lang-item .name { font-weight: 700; color: var(--ink); font-size: 0.95rem; }
+  .lang-item .level { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
+
+  footer {
+    margin-top: 56px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+  }
+  .footer-links {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    margin-bottom: 14px;
+  }
+  .footer-note { font-size: 0.85rem; color: var(--muted); max-width: 56ch; }
+
+  @media (max-width: 480px) {
+    .hero { flex-direction: column; align-items: flex-start; }
+    .project-card { padding: 18px 18px; }
+  }
+</style>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a class="brand" href="#top">SM/</a>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#writing">Writing</a>
+      <a href="#projects">Projects</a>
+      <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap" id="top">
+
+  <div class="hero">
+    <div class="monogram">SM</div>
+    <div class="hero-text">
+      <h1>Sareh Mahdavifar</h1>
+      <p class="hero-role">AI Engineer — ML &amp; Deep Learning · NLP · LLMs · RAG · Python · SQL</p>
+      <div class="hero-meta">
+        <span>BUSHEHR, IRAN</span>
+        <span>OPEN TO RELOCATION</span>
+      </div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="section-head"><span class="section-num">01</span><h2>About</h2></div>
+    <p>AI Engineer with a Software Engineering MSc and a first-author paper in a Q1 journal on clinical NLP. Currently building LLM-based NL2SQL and BI systems at <strong>Rosha Imen</strong> (on <strong>Odoo</strong> and <strong>Django</strong>), after data analyst roles across retail and healthcare AI. Open to AI engineer, data scientist, and fully-funded PhD opportunities.</p>
+  </section>
+
+  <hr class="rule">
+
+  <section id="experience">
+    <div class="section-head"><span class="section-num">02</span><h2>Experience</h2></div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-when"><span class="current">Jun 2026 — Present</span></div>
+        <div class="tl-body">
+          <h3>Artificial Intelligence Engineer</h3>
+          <p class="org">Rosha Imen · Full-time · On-site</p>
+          <p>Building a Farsi-language LLM assistant that answers natural-language questions over a large economic data warehouse via NL2SQL (Qwen-based). Contributing to the team's HSE module built on the Odoo framework, and its new BI layer for managers.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-when">Nov 2025 — May 2026</div>
+        <div class="tl-body">
+          <h3>Data Analyst</h3>
+          <p class="org">Quera · Internship · Tehran, Remote</p>
+          <p>200+ hours of applied data work: EDA, ETL pipeline design, classification/regression models tuned with GridSearchCV and cross-validation, interactive Power BI dashboards, and A/B testing. Scraped and processed 10,000+ records with Selenium and BeautifulSoup.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-when">Jul — Dec 2025</div>
+        <div class="tl-body">
+          <h3>Data Analyst</h3>
+          <p class="org">Megentix AI · Toronto, ON (Remote)</p>
+          <p>Built ETL pipelines and preprocessed data for an AI-powered healthcare platform.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-when">Jul 2022 — Apr 2023</div>
+        <div class="tl-body">
+          <h3>Scrum Master</h3>
+          <p class="org">Dataak · Full-time · Tehran, Hybrid</p>
+          <p>Coordinated Agile workflows and sprint planning across cross-functional teams using JIRA.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section id="writing">
+    <div class="section-head"><span class="section-num">03</span><h2>Writing</h2></div>
+    <p class="section-note" style="max-width: 66ch; color: var(--muted); font-size: 0.92rem; margin-bottom: 22px;">Active on LinkedIn writing about applied AI engineering — evaluation, retrieval, and what actually breaks in production LLM systems.</p>
+    <div class="project-grid">
+      <div class="project-card">
+        <div class="p-top">
+          <h3>What if your AI evaluator is biased too?</h3>
+          <span class="p-meta">7 · 135 impr.</span>
+        </div>
+        <p>On LLM-as-a-Judge: position bias, verbosity bias, and why the evaluator needs its own evaluation pipeline — randomized order, explicit rubrics, human-validated test sets.</p>
+        <div class="tags"><span class="tag">LLM Evaluation</span><span class="tag">LLMOps</span></div>
+      </div>
+      <div class="project-card">
+        <div class="p-top">
+          <h3>Bigger context window = better results? Think again.</h3>
+          <span class="p-meta">12 · 326 impr.</span>
+        </div>
+        <p>On "context rot" and why relevant retrieval, smart chunking, and structure beat raw context length — even as windows push past a million tokens.</p>
+        <div class="tags"><span class="tag">RAG</span><span class="tag">Context Windows</span></div>
+      </div>
+      <div class="project-card">
+        <div class="p-top">
+          <h3>AI Engineering is not ML Engineering</h3>
+          <span class="p-meta">14 · 267 impr.</span>
+        </div>
+        <p>Prompt engineering vs. fine-tuning: when adapting a model beats building one, and how to choose based on data, latency, and cost constraints.</p>
+        <div class="tags"><span class="tag">Prompt Engineering</span><span class="tag">Fine-tuning</span></div>
+      </div>
+      <div class="project-card">
+        <div class="p-top">
+          <h3>Harness Engineering — the layer no one talks about</h3>
+          <span class="p-meta">13 · 226 impr.</span>
+        </div>
+        <p>Retries, fallbacks, memory management, and observability: the unglamorous system design that turns a notebook demo into a production AI product.</p>
+        <div class="tags"><span class="tag">System Design</span><span class="tag">Production AI</span></div>
+      </div>
+    </div>
+    <p style="margin-top: 4px;"><a href="https://www.linkedin.com/in/sare-mahdavifar/recent-activity/all/" target="_blank" rel="noopener">See all posts on LinkedIn ↗</a></p>
+  </section>
+
+  <hr class="rule">
+
+  <section id="projects">
+    <div class="section-head"><span class="section-num">04</span><h2>Projects</h2></div>
+
+    <div class="project-grid">
+      <div class="project-card">
+        <div class="p-top">
+          <h3>Superstore Sales &amp; Inventory Analytics</h3>
+          <a class="p-link" href="https://github.com/SareMahdavifar/Superstore_sales_analytics" target="_blank" rel="noopener">github ↗</a>
+        </div>
+        <p>End-to-end retail pipeline: rebuilt 50,000+ transactions into a star schema, validated business assumptions with non-parametric hypothesis tests, then compared four regression models before shipping a Power BI dashboard on regional profitability.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">XGBoost</span><span class="tag">Power BI</span></div>
+      </div>
+
+      <div class="project-card">
+        <div class="p-top">
+          <h3>Basketball Reference Analytics</h3>
+          <a class="p-link" href="https://github.com/SareMahdavifar/Basketball-Reference-Analytics" target="_blank" rel="noopener">github ↗</a>
+        </div>
+        <p>Scraped six seasons of NBA player statistics, normalized them into a relational MySQL schema via SQLAlchemy, and ran hypothesis tests asking what actually separates MVP-calibre players from the rest — finding that physical attributes barely differ; accumulated experience is what separates them.</p>
+        <div class="tags"><span class="tag">Selenium</span><span class="tag">MySQL</span><span class="tag">SciPy</span><span class="tag">Plotly</span></div>
+      </div>
+
+      <div class="project-card">
+        <div class="p-top">
+          <h3>Marketing A/B Testing &amp; Conversion Analysis</h3>
+          <a class="p-link" href="https://github.com/SareMahdavifar/marketing-ab-testing-conversion-analysis" target="_blank" rel="noopener">github ↗</a>
+        </div>
+        <p>Evaluated a 588,101-user ad campaign against a PSA control group — did the ad work, does timing matter, and does exposure volume actually cause conversion, or just correlate with it?</p>
+        <div class="tags"><span class="tag">pandas</span><span class="tag">statsmodels</span><span class="tag">Plotly</span></div>
+      </div>
+
+      <div class="project-card">
+        <div class="p-top">
+          <h3>Social Anxiety Statistical Analysis</h3>
+          <a class="p-link" href="https://github.com/SareMahdavifar/Social-Anxiety-Statistical-Analysis" target="_blank" rel="noopener">github ↗</a>
+        </div>
+        <p>Ran 12+ hypothesis tests across 20+ demographic, lifestyle, and physiological variables from 2,030 subjects to isolate what actually predicts social anxiety — stress level and family history stood out as the strongest signals.</p>
+        <div class="tags"><span class="tag">pandas</span><span class="tag">SciPy</span><span class="tag">seaborn</span></div>
+      </div>
+
+      <div class="project-card">
+        <div class="p-top">
+          <h3>Clinical Report Severity Classification</h3>
+          <a class="p-link" href="https://www.sciencedirect.com/science/article/pii/S0020653924001680" target="_blank" rel="noopener">paper ↗</a>
+        </div>
+        <p>Annotated 1,000+ dental cone-beam CT reports and trained NLP and deep-learning models to classify oral lesion severity — the basis of my Q1 journal publication.</p>
+        <div class="tags"><span class="tag">NLTK</span><span class="tag">Deep Learning</span><span class="tag">Clinical NLP</span></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section id="publications">
+    <div class="section-head"><span class="section-num">05</span><h2>Publications</h2></div>
+
+    <div class="pub">
+      <span class="pub-kind">Journal · Q1</span>
+      <h3>Estimating the Severity of Oral Lesions via Analysis of Cone-Beam Computed Tomography Reports: A Proposed Deep Learning Model</h3>
+      <p class="venue">Mahdavifar, S., Fakhrahmad, S. M., &amp; Ansarifard, E. (2024) · International Dental Journal</p>
+      <p><a href="https://www.sciencedirect.com/science/article/pii/S0020653924001680" target="_blank" rel="noopener">Read on ScienceDirect ↗</a></p>
+    </div>
+    <div class="pub">
+      <span class="pub-kind">Conference</span>
+      <h3>Sentiment Analysis in Clinical Reports</h3>
+      <p class="venue">Mahdavifar, S., &amp; Fakhrahmad, M. (2021) · 7th Intl. Conference on Knowledge and Technology of Mechanical, Electrical Engineering and Computer of Iran</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section id="education">
+    <div class="section-head"><span class="section-num">06</span><h2>Education</h2></div>
+    <div class="edu-item">
+      <h3>MSc, Software Engineering</h3>
+      <p class="org">Shiraz University · 2018–2021</p>
+      <p>Thesis: "Sentiment Analysis in Clinical Reports" (NLP + deep learning for healthcare text). Supervisor: Dr. Seyed Mostafa Fakhrahmad</p>
+    </div>
+    <div class="edu-item">
+      <h3>BSc, Computer/Software Engineering</h3>
+      <p class="org">Persian Gulf University · 2012–2016</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section id="skills">
+    <div class="section-head"><span class="section-num">07</span><h2>Skills</h2></div>
+    <div class="skill-groups">
+      <div class="skill-row"><span class="cat">Programming</span><div class="chips"><span class="chip">Python</span><span class="chip">SQL</span></div></div>
+      <div class="skill-row"><span class="cat">ML</span><div class="chips"><span class="chip">scikit-learn</span><span class="chip">XGBoost</span><span class="chip">LightGBM</span><span class="chip">Keras</span><span class="chip">GridSearchCV</span><span class="chip">Feature Engineering</span></div></div>
+      <div class="skill-row"><span class="cat">NLP</span><div class="chips"><span class="chip">NLTK</span><span class="chip">Text Classification</span><span class="chip">Sentiment / Severity Analysis</span></div></div>
+      <div class="skill-row"><span class="cat">Data</span><div class="chips"><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">EDA</span><span class="chip">A/B Testing</span><span class="chip">Hypothesis Testing</span></div></div>
+      <div class="skill-row"><span class="cat">BI &amp; Viz</span><div class="chips"><span class="chip">Power BI</span><span class="chip">Matplotlib</span><span class="chip">Seaborn</span><span class="chip">Plotly</span><span class="chip">Metabase</span></div></div>
+      <div class="skill-row"><span class="cat">Engineering</span><div class="chips"><span class="chip">ETL</span><span class="chip">Selenium</span><span class="chip">BeautifulSoup</span><span class="chip">SQLAlchemy</span></div></div>
+      <div class="skill-row"><span class="cat">Frameworks</span><div class="chips"><span class="chip">Odoo</span><span class="chip">Django</span><span class="chip">Django REST Framework</span></div></div>
+      <div class="skill-row"><span class="cat">Tools</span><div class="chips"><span class="chip">Git</span><span class="chip">VS Code</span><span class="chip">JIRA</span><span class="chip">Agile / Scrum</span></div></div>
+      <div class="skill-row"><span class="cat">Spoken</span><div class="chips"><span class="chip">Farsi — Native</span><span class="chip">English — Professional</span><span class="chip">Turkish — Elementary</span></div></div>
+    </div>
+
+    <div class="callout">
+      <span class="tag-label">Certification</span>
+      <p style="max-width: none;">Task-Oriented Bootcamp in Data Analysis — Quera</p>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="footer-links">
+      <a href="mailto:s.mahdavifar2001@gmail.com">s.mahdavifar2001@gmail.com</a>
+      <a href="https://github.com/SareMahdavifar" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/sare-mahdavifar" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="https://scholar.google.com/citations?user=C-Eu2pkAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar ↗</a>
+    </div>
+    <p class="footer-note">Ready to collaborate and relocate anywhere that offers the expertise and growth to build a brighter future — open to AI/ML roles and fully-funded PhD positions worldwide.</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
